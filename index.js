@@ -35,7 +35,7 @@ client.events = new Collection();
 client.cooldowns = new Collection();
 client.category = fs.readdirSync("./commands/")
 
-function requirehandlers() {
+function handlers() {
   client.basicshandlers = Array("command", "event", "slash");
   client.basicshandlers.forEach((handler) => {
     try {
@@ -45,7 +45,7 @@ function requirehandlers() {
     }
   });
 }
-requirehandlers();
+handlers();
 
 client.login(config.token);
 
