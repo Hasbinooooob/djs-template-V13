@@ -6,11 +6,8 @@ const config = require("../../config/config.json");
 module.exports = {
   name: "",
   aliases: [],
-  category: "",
   memberpermissions: [],
-  cooldown: 5,
   description: "",
-  usage: "",
   /**
    * @param {Client} client
    * @param {Message} message
