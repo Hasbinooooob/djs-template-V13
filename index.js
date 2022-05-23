@@ -2,10 +2,7 @@ const { Client, Collection } = require("discord.js");
 const colors = require("colors");
 const fs = require("fs");
 const config = require("./config/config.json");
-
-
-
-// client 
+// client
 const client = new Client({
   messageCacheLifetime: 60,
   fetchAllMembers: false,
@@ -23,18 +20,16 @@ const client = new Client({
 });
 module.exports = client;
 
-
 client.setMaxListeners(50);
 require("events").defaultMaxListeners = 50;
-
 // Global Variables
 client.slashCommands = new Collection();
 client.commands = new Collection();
 client.aliases = new Collection();
 client.events = new Collection();
 client.cooldowns = new Collection();
-client.category = fs.readdirSync("./commands/")
-
+client.category = fs.readdirSync("./commands/");
+//handlers
 function handlers() {
   client.basicshandlers = Array("command", "event", "slash");
   client.basicshandlers.forEach((handler) => {
@@ -46,15 +41,9 @@ function handlers() {
   });
 }
 handlers();
-
 client.login(config.token);
 
-
-
-
-
-module.exports.requirehandlers = requirehandlers;
-
+module.exports = handlers;
 //anti crash by Tomato6966
 process.on("unhandledRejection", (reason, p) => {
   console.log(" [Error_Handling] :: Unhandled Rejection/Catch");
@@ -72,12 +61,3 @@ process.on("multipleResolves", (type, promise, reason) => {
   console.log(" [Error_Handling] :: Multiple Resolves");
   console.log(type, promise, reason);
 });
-
-
-
-
-
-
-
-
-
