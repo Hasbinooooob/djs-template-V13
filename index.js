@@ -44,7 +44,7 @@ handlers();
 client.login(config.token);
 
 module.exports = handlers;
-//anti crash by Tomato6966
+
 process.on("unhandledRejection", (reason, p) => {
   console.log(" [Error_Handling] :: Unhandled Rejection/Catch");
   console.log(reason, p);
