@@ -16,7 +16,7 @@ const client = new Client({
     parse: ["roles", "users", "everyone"],
     repliedUser: true,
   },
-  intents: 32767,
+  intents: 131071,
 });
 module.exports = client;
 
